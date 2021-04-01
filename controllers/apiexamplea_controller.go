@@ -18,6 +18,7 @@ package controllers
 
 import (
 	"context"
+	"log"
 
 	"github.com/go-logr/logr"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -42,6 +43,21 @@ func (r *ApiExampleAReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error)
 	_ = r.Log.WithValues("apiexamplea", req.NamespacedName)
 
 	// your logic here
+
+	// 获取当前的CR, 并打印
+	ctx := context.Background()
+	obj := &groupav1.ApiExampleA{}
+	if err := r.Get(ctx, req.NamespacedName, obj); err != nil {
+		log.Println(err, "Unable to fetch object.")
+	} else {
+		log.Println("Greeting from to", obj.Spec.FirstName, obj.Spec.LastName)
+	}
+
+	// 初始化 CR 的 Status 为 Running
+	obj.Status.Status = "Running"
+	if err := r.Status().Update(ctx, obj); err != nil {
+		log.Println(err, "Unable to update status")
+	}
 
 	return ctrl.Result{}, nil
 }

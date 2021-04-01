@@ -30,12 +30,18 @@ type ApiExampleASpec struct {
 
 	// Foo is an example field of ApiExampleA. Edit ApiExampleA_types.go to remove/update
 	Foo string `json:"foo,omitempty"`
+
+	// 添加两个新的字段
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
 }
 
 // ApiExampleAStatus defines the observed state of ApiExampleA
 type ApiExampleAStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+
+	Status string `json:"status"`
 }
 
 // +kubebuilder:object:root=true

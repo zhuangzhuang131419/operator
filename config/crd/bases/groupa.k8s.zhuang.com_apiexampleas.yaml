@@ -34,13 +34,26 @@ spec:
         spec:
           description: ApiExampleASpec defines the desired state of ApiExampleA
           properties:
+            first_name:
+              description: 添加两个新的字段
+              type: string
             foo:
               description: Foo is an example field of ApiExampleA. Edit ApiExampleA_types.go
                 to remove/update
               type: string
+            last_name:
+              type: string
+          required:
+          - first_name
+          - last_name
           type: object
         status:
           description: ApiExampleAStatus defines the observed state of ApiExampleA
+          properties:
+            status:
+              type: string
+          required:
+          - status
           type: object
       type: object
   version: v1

@@ -5,3 +5,5 @@ metadata:
 spec:
   # Add fields here
   foo: bar
+  first_name: Jimmy
+  last_name: Song
