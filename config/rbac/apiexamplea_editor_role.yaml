@@ -1,0 +1,24 @@
+# permissions for end users to edit apiexampleas.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: apiexamplea-editor-role
+rules:
+- apiGroups:
+  - groupa.k8s.zhuang.com
+  resources:
+  - apiexampleas
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - groupa.k8s.zhuang.com
+  resources:
+  - apiexampleas/status
+  verbs:
+  - get

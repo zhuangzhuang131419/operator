@@ -1,0 +1,7 @@
+domain: k8s.zhuang.com
+repo: github.com/operator-demo
+resources:
+- group: groupa
+  kind: ApiExampleA
+  version: v1
+version: "2"
