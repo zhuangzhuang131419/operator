@@ -1,0 +1,3 @@
+domain: tutorial.kubebuilder.io
+repo: github.com/operator-demo
+version: "2"
