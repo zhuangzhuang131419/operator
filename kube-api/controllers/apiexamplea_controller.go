@@ -18,6 +18,7 @@ package controllers
 
 import (
 	"context"
+	"log"
 
 	"github.com/go-logr/logr"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -38,10 +39,15 @@ type ApiExampleAReconciler struct {
 // +kubebuilder:rbac:groups=groupa.k8s.zhuang.com,resources=apiexampleas/status,verbs=get;update;patch
 
 func (r *ApiExampleAReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
-	_ = context.Background()
+	ctx := context.Background()
 	_ = r.Log.WithValues("apiexamplea", req.NamespacedName)
 
-	// your logic here
+	obja := &groupav1beta1.ApiExampleA{}
+	if err := r.Get(ctx, req.NamespacedName, obja); err != nil {
+		log.Println(err, "unable to fetch New Object")
+	} else {
+		log.Println("fetch New Object:", obja.Spec.FirstName, obja.Spec.SecondName)
+	}
 
 	return ctrl.Result{}, nil
 }

@@ -4,4 +4,6 @@ metadata:
   name: apiexamplea-sample
 spec:
   # Add fields here
-  foo: bar
+#  foo: bar
+  first_name: zheng
+  second_name: chicheng

@@ -28,8 +28,8 @@ type ApiExampleASpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of ApiExampleA. Edit ApiExampleA_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	FirstName  string `json:"first_name"`
+	SecondName string `json:"second_name"`
 }
 
 // ApiExampleAStatus defines the observed state of ApiExampleA
