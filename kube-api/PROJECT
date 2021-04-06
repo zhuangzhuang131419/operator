@@ -1,0 +1,7 @@
+domain: k8s.zhuang.com
+repo: github.com/operator-demo/kube-api
+resources:
+- group: groupa
+  kind: ApiExampleA
+  version: v1beta1
+version: "2"
